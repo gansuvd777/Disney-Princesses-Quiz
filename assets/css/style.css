@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+*{
+    background: url('../images/1.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+h1{
+    margin-left: 28%;
+    margin-top: 15px;
+    font-family: 'Satisfy', cursive;
+    color: white;
+    font-weight: bold;
+}
+.quizContainer {
+    border-radius: 10px;
+    border: 3px dotted blue;
+    padding: 5%;
+    margin: 5px 40% auto 30%;
+}
+.timeLeft{
+    text-align: center;
+    margin-top:-40px;
+}
+.quizMessage{
+    text-align: center;
+    margin-top: 45px;
+}
+.clock{
+    text-align: left;
+    font-size: 20px;
+    /* height: 100%; */
+    padding: 25px;
+    font-family: Orbitron;
+    color: blue;
+    position: absolute;
+    bottom: 10px;
+}
+img{
+    height: 120px;
+    width: auto;
+}
+.timeLeft{
+    font-family: Orbitron;
+    color:red;
+    font-weight: bolder;
+}
+.question{
+    font-family: 'Satisfy', cursive;
+    color: blue;
+    font-weight: bold;
+    font-size: 20px;
+}
+.choices{
+    color: blue;
+}
+.result{
+    font-family: Orbitron;
+    color: blue;
+    padding-top: 5px;
+    font-weight: bolder;
+}
+.footer{
+    bottom: 0;
+    position: absolute;
+    padding: 10px;
+}
