@@ -5,55 +5,55 @@ $(document).ready(function() {
         var questions = [{//Question 1
             question: "Which movie dramatizes the meeting of English colonists and American Indians?",
             choices: ["Pocahontas", "The Little Mermaid", "Peter Pan", "Mulan"],
-            correct: 0,//index number
+            correct: 0,//index of the correct answer
             url: ("https://media.giphy.com/media/ZM1GZ5m9Y4R6U/giphy.gif"),
             audiosrc: "assets/audio/gotit2.wav"
         }, {//Question 2
             question: "Which character dresses up as a man to take her father's place in the army?",
             choices: ["Jasmine", "Pocahontas", "Mulan", "Belle"],
-            correct: 2,//index number
+            correct: 2,
             url: ("https://media.giphy.com/media/v3zrOsLhw30D6/giphy.gif"),
             audiosrc: "assets/audio/gotit2.wav"
         }, {//Question 3
             question: "A terrible monster kept this princess locked away in a castle; who is she?",
             choices: ["Ariel", "Belle", "Snow White", "Pocahontas"],
-            correct: 1,//index number
+            correct: 1,
             url: ("https://media.giphy.com/media/l0DAIsbP4gJt33Dfa/giphy.gif"),
             audiosrc: "assets/audio/gotit2.wav"
         }, {//Question 4
             question: "Which of these characters is not a Disney Princess?",
             choices: ["Snow White", "Cinderella", "Wendy", "Pocahontas"],
-            correct: 2,//index number
+            correct: 2,
             url: ("https://media.giphy.com/media/k3qEYZH7P1i0M/giphy.gif"),
             audiosrc: "assets/audio/gotit2.wav"
         }, {//Question 5
             question: "The song 'Some Day My Prince Will Come' was featured in which Disney Princess movie?",
             choices: ["Beauty and the Beast", "Snow White and the Seven Dwarves", "Mulan", "Aladdin"],
-            correct: 1,//index number
+            correct: 1,
             url: ("https://media.giphy.com/media/zg0bpSD5KOBwY/giphy.gif"),
             audiosrc: "assets/audio/gotit2.wav"
         }, {//Question 6
             question: "Which princess proved her identity by fitting into a glass slipper?",
             choices: ["Belle", "Jasmine", "Mulan", "Cinderella"],
-            correct: 3,//index number
+            correct: 3,
             url: ("https://media.giphy.com/media/yr9UlUm4yd6Kc/giphy.gif"),
             audiosrc: "assets/audio/gotit2.wav"
         }, {//Question 7
             question: "This princess runs away when her father tells her she has to get married.",
             choices: ["Snow White", "Jasmine", "Mulan", "Cinderella"],
-            correct: 1,//index number
+            correct: 1,
             url: "https://media.giphy.com/media/X59T7Lg3zdzPO/giphy.gif",
             audiosrc: "assets/audio/gotit2.wav"
         }, {//Question 8
             question: "More than anything in the world, Ariel, the main character of The Little Mermaid, wants:",
             choices: ["to be human", "to live in the sea forever", "to travel the world", "to go to school"],
-            correct: 0,//index number
+            correct: 0,
             url: "https://media.giphy.com/media/jarNoneOdIBC8/giphy.gif",
             audiosrc: "assets/audio/gotit2.wav"
         }, {//Question 9
             question: "How many fairies look after Aurora for sixteen years to keep her safe from Maleficent?",
             choices: ["Two", "Three", "Seven", "Five"],
-            correct: 1,//index number
+            correct: 1,
             url: "https://media.giphy.com/media/4TqFtS65xaxfW/giphy.gif",
             audiosrc: "assets/audio/gotit2.wav"
         }];
@@ -160,11 +160,13 @@ $(document).ready(function() {
             $(".question").html("<img src='assets/images/bg.jpg'/>");
             $(".choiceList").hide();
             $("#start").html("Play Again").show().click(function() {
-                audio.stop();
                 reset();
                 });
             $(".result").html("Correct answers: " + correctAnswers + "<br> Incorrect answers: " + incorrectAnswers + "<br>Unanswered Questions: " + outOfTimeQuestions);
-            $(".result").show();
+            $(".result").append(
+                `<p>Thanks for playing!🏆</p>`
+            ).show();
+
         };
     
         function reset() {
@@ -175,12 +177,13 @@ $(document).ready(function() {
             $(".choiceList").show();
             $(".timeLeft").show();
             $(".result").hide();
-            $("#up").show();
             displayQuestion();
         }
 
         function displayQuestion() {
             $("#start").hide();
+            //display timer without delay
+            $('.timeLeft').text(number);
             timer();
             question = questions[currentQuestion].question;
             // console.log("current question: " + question);
@@ -213,7 +216,7 @@ $(document).ready(function() {
     
         function decrement() {
             number--;
-            $(".timeLeft").html("<h3>" + number + "</h3>");
+            $(".timeLeft").html("<div>" + number + "</div>");
             if (number === 0) {
                 stop();
                 number = 15;
