@@ -131,7 +131,7 @@ $(document).ready(function() {
         function breakTimeIncorrect() {
             playWrong();
             var j = questions[currentQuestion].correct;
-            $(".timeLeft").html("WRONG!👀 Correct answer is " + questions[currentQuestion].choices[j]);
+            $(".timeLeft").html("WRONG!👀 Correct answer is " + questions[currentQuestion].choices[j] + "!");
             $(".question").html("<img src='" + questions[currentQuestion].url + "'/>");
             $(".choiceList").hide();
             setTimeout(function() {
