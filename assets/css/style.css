@@ -16,6 +16,17 @@ h1{
     padding: 5%;
     margin: 5px 40% auto 30%;
 }
+.list-group-item{
+    cursor: pointer;
+    font-family: Orbitron;
+    border: 1px dotted blue;
+    margin-top: 10px;
+    color: darkblue;
+}
+.list-group-item:hover{
+    color: red;
+    transform: scale(1.2)
+}
 .timeLeft{
     text-align: center;
     margin-top:-40px;
@@ -38,6 +49,8 @@ h1{
 img{
     height: 120px;
     width: auto;
+    border: 1px dotted white;
+    border-radius: 4px;
 }
 .timeLeft{
     font-family: Orbitron;
